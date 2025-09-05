@@ -18,12 +18,8 @@ public class LoanRepositoryAdapter extends ReactiveAdapterOperations<Loan, LoanE
     }
 
     @Override
-    public Mono<Loan> saveLoan(Loan loan) {
-        LoanEntity loanEntity = toEntity(loan);
-        loanEntity.setLoanType("Crédito");
-        loanEntity.setState("Pendiente de revisión");
-
-        return repository.save(loanEntity)
-                .flatMap(entity -> Mono.just(toData(entity)));
+    public Mono<Loan> save(Loan loan) {
+        return repository.save(toEntity(loan))
+            .map(this::toData);
     }
 }

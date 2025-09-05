@@ -1,14 +1,18 @@
 package co.com.pragma.r2dbc.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 
-@Table("loans")
-@Getter
 @Setter
+@Getter
+@Table("loans")
 @ToString
 public class LoanEntity {
 
@@ -16,8 +20,14 @@ public class LoanEntity {
     private BigInteger id;
     private BigInteger amount;
     private Integer term;
-    private String loanType;
-    private String state;
-    private BigInteger userId;
+
+    @Column("loan_type")
+    private Integer loanType;
+
+    private String email;
+    private Integer state;
+
+    @Column("created_at")
+    private LocalDateTime createdAt;
 
 }
