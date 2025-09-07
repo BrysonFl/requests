@@ -7,5 +7,5 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 import java.math.BigInteger;
 
-public interface LoanTypeReactiveRepository extends ReactiveCrudRepository<LoanTypesEntity, BigInteger>, ReactiveQueryByExampleExecutor<LoanEntity> {
+public interface LoanTypeReactiveRepository extends ReactiveCrudRepository<LoanTypesEntity, BigInteger>, ReactiveQueryByExampleExecutor<LoanTypesEntity> {
 }

@@ -21,8 +21,8 @@ public class LoanUseCase implements ILoanUserCase {
                 .onErrorResume(throwable -> Mono.error(new ConnectionException("Error al conectarse con el servicio de autenticación " + throwable.getMessage())))
                 .switchIfEmpty(Mono.error(new NotFoundException("User not found")))
                 .flatMap(user -> {
+                    loan.setState(1);
                     loan.setEmail(user.email());
-                    loan.setLoanType(loan.getLoanType());
                     return Mono.just(loan);
                 })
                 .flatMap(user -> loanRepository.save(loan));

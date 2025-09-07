@@ -7,7 +7,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Getter
 @Setter
-@Table("states")
+@Table("state")
 public class StatesEntity {
 
     private @Id Integer id;

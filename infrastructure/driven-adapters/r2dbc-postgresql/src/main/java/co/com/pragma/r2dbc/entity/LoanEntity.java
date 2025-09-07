@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Setter
 @Getter
-@Table("loans")
+@Table("loan")
 @ToString
 public class LoanEntity {
 
@@ -21,10 +21,12 @@ public class LoanEntity {
     private BigInteger amount;
     private Integer term;
 
-    @Column("loan_type")
+    @Column("id_loan_type")
     private Integer loanType;
 
     private String email;
+
+    @Column("id_state")
     private Integer state;
 
     @Column("created_at")

@@ -9,7 +9,7 @@ import java.math.BigInteger;
 
 @Setter
 @Getter
-@Table("loan_types")
+@Table("loan_type")
 public class LoanTypesEntity {
 
     private @Id BigInteger id;
